@@ -1,21 +1,35 @@
 (function () {
 'use strict';
 
-angular.module('LunchCheck', [])
+angular.module('LunchCheck', ['ngMessages'])
 .controller('LunchCheckController', LunchCheckController);
 
 LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope) {
-  $scope.name = "Yaakov";
-  $scope.stateOfBeing="hungry";
+  
+ 
+  
 
-  $scope.sayMessage=function(){
-    return"Yaakov likes to eat healthy snacks at night";
-  };
-  $scope.feedYaakov=function(){
+    $scope.addItemList = function () {
 
-    $scope.stateOfBeing="fed";
-  };
+      var list = $scope.foodItem;
+      var foodCount = list.length;
+      if (foodCount <= 3) {
+          $scope.enjoyormuch = "Enjoy";
+      } else if (foodCount > 3) {
+          $scope.enjoyormuch = "Too Much";
+      }
+
+    };
+
+
+
+
+  
+   
+
+  
+ 
 }
 
 })();
